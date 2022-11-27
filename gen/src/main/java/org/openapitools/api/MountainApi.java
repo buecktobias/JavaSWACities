@@ -21,7 +21,7 @@ import javax.validation.constraints.*;
 import java.util.List;
 import java.util.Map;
 import java.util.Optional;
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.SpringCodegen", date = "2022-11-27T14:25:16.020514600+01:00[Europe/Berlin]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.SpringCodegen", date = "2022-11-27T14:51:34.315482300+01:00[Europe/Berlin]")
 @Validated
 @Api(value = "mountain", description = "the mountain API")
 public interface MountainApi {
@@ -31,11 +31,11 @@ public interface MountainApi {
     }
 
     /**
-     * GET /mountain : GET mountain
+     * GET /mountain : Get All Mountains
      *
      * @return OK (status code 200)
      */
-    @ApiOperation(value = "GET mountain", nickname = "get", notes = "", response = String.class, responseContainer = "List", tags={  })
+    @ApiOperation(value = "Get All Mountains", nickname = "get", notes = "", response = String.class, responseContainer = "List", tags={  })
     @ApiResponses(value = { 
         @ApiResponse(code = 200, message = "OK", response = String.class, responseContainer = "List") })
     @GetMapping(
@@ -58,12 +58,12 @@ public interface MountainApi {
 
 
     /**
-     * GET /mountain/{name} : GET mountain/{name}
+     * GET /mountain/{name} : GET mountain by Name /{name}
      *
      * @param name  (required)
      * @return OK (status code 200)
      */
-    @ApiOperation(value = "GET mountain/{name}", nickname = "getMountainByName", notes = "", response = String.class, responseContainer = "List", tags={  })
+    @ApiOperation(value = "GET mountain by Name /{name}", nickname = "getMountainByName", notes = "", response = String.class, responseContainer = "List", tags={  })
     @ApiResponses(value = { 
         @ApiResponse(code = 200, message = "OK", response = String.class, responseContainer = "List") })
     @GetMapping(
@@ -86,12 +86,12 @@ public interface MountainApi {
 
 
     /**
-     * GET /mountain/mountains/{mountains} : GET mountain/mountains/{mountains}
+     * GET /mountain/mountains/{mountains} : Search for a Mountain by Mountains, every Mountain with the Mountains are returned
      *
      * @param mountains  (required)
      * @return OK (status code 200)
      */
-    @ApiOperation(value = "GET mountain/mountains/{mountains}", nickname = "searchMountainByMountains", notes = "", response = String.class, responseContainer = "List", tags={  })
+    @ApiOperation(value = "Search for a Mountain by Mountains, every Mountain with the Mountains are returned", nickname = "searchMountainByMountains", notes = "", response = String.class, responseContainer = "List", tags={  })
     @ApiResponses(value = { 
         @ApiResponse(code = 200, message = "OK", response = String.class, responseContainer = "List") })
     @GetMapping(
@@ -114,12 +114,12 @@ public interface MountainApi {
 
 
     /**
-     * GET /mountain/search/{name} : GET mountain/search/{name}
+     * GET /mountain/search/{name} : Search For a Mountain by a Search String, every mountain which name contains the search String is returned!
      *
      * @param name  (required)
      * @return OK (status code 200)
      */
-    @ApiOperation(value = "GET mountain/search/{name}", nickname = "searchMountainByName", notes = "", response = String.class, responseContainer = "List", tags={  })
+    @ApiOperation(value = "Search For a Mountain by a Search String, every mountain which name contains the search String is returned!", nickname = "searchMountainByName", notes = "", response = String.class, responseContainer = "List", tags={  })
     @ApiResponses(value = { 
         @ApiResponse(code = 200, message = "OK", response = String.class, responseContainer = "List") })
     @GetMapping(

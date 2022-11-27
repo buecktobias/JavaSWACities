@@ -17,15 +17,15 @@ import springfox.documentation.swagger2.annotations.EnableSwagger2;
 
 import javax.servlet.ServletContext;
 
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.SpringCodegen", date = "2022-11-27T14:25:16.020514600+01:00[Europe/Berlin]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.SpringCodegen", date = "2022-11-27T14:51:34.315482300+01:00[Europe/Berlin]")
 @Configuration
 @EnableSwagger2
 public class OpenAPIDocumentationConfig {
 
     ApiInfo apiInfo() {
         return new ApiInfoBuilder()
-            .title("JavaSWACities API")
-            .description("JavaSWACities API")
+            .title("Mountain API")
+            .description("Mountain API")
             .license("")
             .licenseUrl("http://unlicense.org")
             .termsOfServiceUrl("")
@@ -35,7 +35,7 @@ public class OpenAPIDocumentationConfig {
     }
 
     @Bean
-    public Docket customImplementation(ServletContext servletContext, @Value("${openapi.javaSWACities.base-path:}") String basePath) {
+    public Docket customImplementation(ServletContext servletContext, @Value("${openapi.mountain.base-path:}") String basePath) {
         return new Docket(DocumentationType.SWAGGER_2)
                 .select()
                     .apis(RequestHandlerSelectors.basePackage("org.openapitools.api"))

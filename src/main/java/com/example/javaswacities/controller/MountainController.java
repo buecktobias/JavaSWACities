@@ -3,9 +3,8 @@ package com.example.javaswacities.controller;
 import com.example.javaswacities.model.Mountain;
 import com.example.javaswacities.services.MountainService;
 import org.springframework.http.MediaType;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.Collection;
 
@@ -37,4 +36,8 @@ public class MountainController {
         return mountainService.searchMountainByMountains(mountains);
     }
 
+    @PostMapping(path="mountain", consumes = MediaType.APPLICATION_JSON_VALUE)
+    public void createNewMountain(@RequestBody Mountain newMountain){
+        this.mountainService.createNewMountain(newMountain);
+    }
 }

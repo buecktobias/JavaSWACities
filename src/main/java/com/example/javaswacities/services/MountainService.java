@@ -1,5 +1,6 @@
 package com.example.javaswacities.services;
 
+import com.example.javaswacities.exceptions.MountainAlreadyExistsException;
 import com.example.javaswacities.exceptions.MountainNotFoundException;
 import com.example.javaswacities.model.Mountain;
 import com.example.javaswacities.repositories.MountainRepository;
@@ -42,5 +43,15 @@ public class MountainService {
                     return mountains != null && mountains.equals(mountainsSearch);
                 }
         ).collect(Collectors.toList());
+    }
+
+    public void createNewMountain(Mountain mountain){
+        try {
+            this.findMountainByName(mountain.getName());
+        } catch(MountainNotFoundException ex){
+            mountainRepository.save(mountain);
+            return;
+        }
+        throw new MountainAlreadyExistsException(mountain.getName());
     }
 }
