@@ -25,7 +25,7 @@ public class MountainController {
     }
 
     @GetMapping(path="mountain/{name}")
-    public ResponseEntity<Mountain> getMountainByName(@PathVariable String name) throws ChangeSetPersister.NotFoundException {
+    public ResponseEntity<Mountain> getMountainByName(@PathVariable String name) {
         final var optionalMountain = mountainService.findMountainByName(name);
         return ResponseEntity.of(optionalMountain);
     }
