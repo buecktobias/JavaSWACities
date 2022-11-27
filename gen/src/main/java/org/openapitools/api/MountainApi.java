@@ -5,7 +5,6 @@
  */
 package org.openapitools.api;
 
-import org.openapitools.model.InlineResponse200;
 import io.swagger.annotations.*;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
@@ -22,7 +21,7 @@ import javax.validation.constraints.*;
 import java.util.List;
 import java.util.Map;
 import java.util.Optional;
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.SpringCodegen", date = "2022-11-27T12:20:27.364887+01:00[Europe/Berlin]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.SpringCodegen", date = "2022-11-27T14:25:16.020514600+01:00[Europe/Berlin]")
 @Validated
 @Api(value = "mountain", description = "the mountain API")
 public interface MountainApi {
@@ -36,18 +35,102 @@ public interface MountainApi {
      *
      * @return OK (status code 200)
      */
-    @ApiOperation(value = "GET mountain", nickname = "get", notes = "", response = InlineResponse200.class, tags={  })
+    @ApiOperation(value = "GET mountain", nickname = "get", notes = "", response = String.class, responseContainer = "List", tags={  })
     @ApiResponses(value = { 
-        @ApiResponse(code = 200, message = "OK", response = InlineResponse200.class) })
+        @ApiResponse(code = 200, message = "OK", response = String.class, responseContainer = "List") })
     @GetMapping(
         value = "/mountain",
         produces = { "application/json" }
     )
-    default ResponseEntity<InlineResponse200> get() {
+    default ResponseEntity<List<String>> get() {
         getRequest().ifPresent(request -> {
             for (MediaType mediaType: MediaType.parseMediaTypes(request.getHeader("Accept"))) {
                 if (mediaType.isCompatibleWith(MediaType.valueOf("application/json"))) {
-                    String exampleString = "{ \"Mountains\" : \"Bergkette\", \"Height\" : 120.3, \"Name\" : \"Berg\" }";
+                    String exampleString = "\"\"";
+                    ApiUtil.setExampleResponse(request, "application/json", exampleString);
+                    break;
+                }
+            }
+        });
+        return new ResponseEntity<>(HttpStatus.NOT_IMPLEMENTED);
+
+    }
+
+
+    /**
+     * GET /mountain/{name} : GET mountain/{name}
+     *
+     * @param name  (required)
+     * @return OK (status code 200)
+     */
+    @ApiOperation(value = "GET mountain/{name}", nickname = "getMountainByName", notes = "", response = String.class, responseContainer = "List", tags={  })
+    @ApiResponses(value = { 
+        @ApiResponse(code = 200, message = "OK", response = String.class, responseContainer = "List") })
+    @GetMapping(
+        value = "/mountain/{name}",
+        produces = { "application/json" }
+    )
+    default ResponseEntity<List<String>> getMountainByName(@ApiParam(value = "",required=true) @PathVariable("name") String name) {
+        getRequest().ifPresent(request -> {
+            for (MediaType mediaType: MediaType.parseMediaTypes(request.getHeader("Accept"))) {
+                if (mediaType.isCompatibleWith(MediaType.valueOf("application/json"))) {
+                    String exampleString = "\"\"";
+                    ApiUtil.setExampleResponse(request, "application/json", exampleString);
+                    break;
+                }
+            }
+        });
+        return new ResponseEntity<>(HttpStatus.NOT_IMPLEMENTED);
+
+    }
+
+
+    /**
+     * GET /mountain/mountains/{mountains} : GET mountain/mountains/{mountains}
+     *
+     * @param mountains  (required)
+     * @return OK (status code 200)
+     */
+    @ApiOperation(value = "GET mountain/mountains/{mountains}", nickname = "searchMountainByMountains", notes = "", response = String.class, responseContainer = "List", tags={  })
+    @ApiResponses(value = { 
+        @ApiResponse(code = 200, message = "OK", response = String.class, responseContainer = "List") })
+    @GetMapping(
+        value = "/mountain/mountains/{mountains}",
+        produces = { "application/json" }
+    )
+    default ResponseEntity<List<String>> searchMountainByMountains(@ApiParam(value = "",required=true) @PathVariable("mountains") String mountains) {
+        getRequest().ifPresent(request -> {
+            for (MediaType mediaType: MediaType.parseMediaTypes(request.getHeader("Accept"))) {
+                if (mediaType.isCompatibleWith(MediaType.valueOf("application/json"))) {
+                    String exampleString = "\"\"";
+                    ApiUtil.setExampleResponse(request, "application/json", exampleString);
+                    break;
+                }
+            }
+        });
+        return new ResponseEntity<>(HttpStatus.NOT_IMPLEMENTED);
+
+    }
+
+
+    /**
+     * GET /mountain/search/{name} : GET mountain/search/{name}
+     *
+     * @param name  (required)
+     * @return OK (status code 200)
+     */
+    @ApiOperation(value = "GET mountain/search/{name}", nickname = "searchMountainByName", notes = "", response = String.class, responseContainer = "List", tags={  })
+    @ApiResponses(value = { 
+        @ApiResponse(code = 200, message = "OK", response = String.class, responseContainer = "List") })
+    @GetMapping(
+        value = "/mountain/search/{name}",
+        produces = { "application/json" }
+    )
+    default ResponseEntity<List<String>> searchMountainByName(@ApiParam(value = "",required=true) @PathVariable("name") String name) {
+        getRequest().ifPresent(request -> {
+            for (MediaType mediaType: MediaType.parseMediaTypes(request.getHeader("Accept"))) {
+                if (mediaType.isCompatibleWith(MediaType.valueOf("application/json"))) {
+                    String exampleString = "\"\"";
                     ApiUtil.setExampleResponse(request, "application/json", exampleString);
                     break;
                 }

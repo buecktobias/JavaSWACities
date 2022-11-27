@@ -1,0 +1,81 @@
+openapi: "3.0.3"
+info:
+  title: "Mountain API"
+  description: "Mountain API"
+  version: "1.0.0"
+servers:
+  - url: "http://localhost:8081"
+paths:
+  /mountain:
+    get:
+      summary: "Get All Mountains"
+      operationId: "get"
+      responses:
+        "200":
+          description: "OK"
+          content:
+            application/json:
+              schema:
+                type: "array"
+                items:
+                  type: "string"
+  /mountain/{name}:
+    get:
+      summary: "GET mountain by Name /{name}"
+      operationId: "getMountainByName"
+      parameters:
+        - name: "name"
+          in: "path"
+          required: true
+          schema:
+            type: "string"
+      responses:
+        "200":
+          description: "OK"
+          content:
+            application/json:
+              schema:
+                type: "object"
+                items:
+                  type: "string"
+
+  /mountain/mountains/{mountains}:
+    get:
+      summary: "Search for a Mountain by Mountains, every Mountain with the Mountains are returned"
+      operationId: "searchMountainByMountains"
+      parameters:
+        - name: "mountains"
+          in: "path"
+          required: true
+          schema:
+            type: "string"
+      responses:
+        "200":
+          description: "OK"
+          content:
+            application/json:
+              schema:
+                type: "array"
+                items:
+                  type: string
+  /mountain/search/{name}:
+    get:
+      summary: "Search For a Mountain by a Search String, every mountain which name contains the search String is returned!"
+      operationId: "searchMountainByName"
+      parameters:
+        - name: "name"
+          in: "path"
+          required: true
+          schema:
+            type: "string"
+
+      responses:
+        "200":
+          description: "OK"
+          content:
+            application/json:
+              schema:
+                type: "array"
+                items:
+                  type: "string"
+  
