@@ -13,8 +13,8 @@ public class Mountain {
     @Id
     private String Name;
     private String Mountains;
-    private Float Height;
+    private Double Height;
     private String Type;
-    private String Longitude;
-    private String Latitude;
+    private Double Longitude;
+    private Double Latitude;
 }

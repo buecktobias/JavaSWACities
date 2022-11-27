@@ -2,22 +2,22 @@ package com.example.javaswacities.controller;
 
 import com.example.javaswacities.model.Mountain;
 import com.example.javaswacities.repositories.MountainRepository;
-import org.springframework.beans.factory.annotation.Autowired;
+import com.example.javaswacities.services.MountainService;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import java.util.List;
+import java.util.Collection;
 
 @RestController
 public class MountainController {
-    private final MountainRepository mountainRepository;
+    private final MountainService mountainService;
 
-    public MountainController(MountainRepository mountainRepository) {
-        this.mountainRepository = mountainRepository;
+    public MountainController(MountainService mountainService) {
+        this.mountainService = mountainService;
     }
 
     @GetMapping(path="mountain")
-    public List<Mountain> get(){
-        return mountainRepository.findAll();
+    public Collection<Mountain> get(){
+        return mountainService.findAllMountains();
     }
 }
