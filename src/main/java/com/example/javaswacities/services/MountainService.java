@@ -33,4 +33,13 @@ public class MountainService {
                 mountain -> mountainNameChecker.mountainNameContainsCaseInsensitive(mountain, name)
                 ).collect(Collectors.toList());
     }
+
+    public Collection<Mountain> searchMountainByMountains(String mountainsSearch){
+        return mountainRepository.findAll().stream().filter(
+                mountain -> {
+                    final var mountains = mountain.getMountains();
+                    return mountains != null && mountains.equals(mountainsSearch);
+                }
+        ).collect(Collectors.toList());
+    }
 }

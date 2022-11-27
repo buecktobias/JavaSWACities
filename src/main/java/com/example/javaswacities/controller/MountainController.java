@@ -32,4 +32,10 @@ public class MountainController {
     public Collection<Mountain> searchMountainByName(@PathVariable String name){
         return mountainService.searchMountainsByName(name);
     }
+
+    @GetMapping(path="mountain/mountains/{mountains}")
+    public Collection<Mountain> searchMountainByMountains(@PathVariable String mountains){
+        return mountainService.searchMountainByMountains(mountains);
+    }
+
 }
