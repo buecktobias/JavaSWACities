@@ -9,6 +9,7 @@ public class JavaSwaCitiesApplication {
     public static void main(String[] args) {
 
         SpringApplication.run(JavaSwaCitiesApplication.class, args);
+
     }
 
 }

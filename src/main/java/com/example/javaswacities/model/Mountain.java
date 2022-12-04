@@ -11,6 +11,7 @@ import javax.persistence.Id;
 @lombok.AllArgsConstructor
 @lombok.RequiredArgsConstructor
 @lombok.ToString
+@lombok.EqualsAndHashCode
 public class Mountain {
     @Id
     private String Name;

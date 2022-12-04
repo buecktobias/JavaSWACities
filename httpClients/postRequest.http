@@ -1,6 +1,28 @@
+POST http://localhost:80/api/item
+Content-Type: application/x-www-form-urlencoded
+
+id=99&content=new-element
+
+###
+
 
 ###
 POST http://localhost:8080/mountain
 Content-Type: application/json
-< data/mountain.json
+
+{
+  "name": "Berg1",
+  "mountains": "Bergkette",
+  "height": "102.3",
+  "type": "mountain",
+  "longitude": "17.3",
+  "latitude": "16.4"
+}
+###
+POST http://localhost:8080/test
+Content-Type: application/json
+
+{
+"name": "test"
+}
 

@@ -1,12 +1,20 @@
 package com.example.javaswacities.controller;
 
+import com.example.javaswacities.dto.MountainDTO;
+import com.example.javaswacities.dto.TestDTO;
 import com.example.javaswacities.model.Mountain;
 import com.example.javaswacities.services.MountainService;
+import com.fasterxml.jackson.databind.ObjectMapper;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
+import org.springframework.util.MimeType;
+import org.springframework.util.StreamUtils;
 import org.springframework.web.bind.annotation.*;
 
+import javax.servlet.http.HttpServletRequest;
+import java.io.IOException;
 import java.util.Collection;
+import java.util.Map;
 
 @RestController
 public class MountainController {
@@ -36,8 +44,15 @@ public class MountainController {
         return mountainService.searchMountainByMountains(mountains);
     }
 
-    @PostMapping(path="mountain", consumes = MediaType.APPLICATION_JSON_VALUE)
-    public void createNewMountain(@RequestBody Mountain newMountain){
-        this.mountainService.createNewMountain(newMountain);
+    @PostMapping(path="mountain", consumes = "application/json")
+    public void createNewMountain(@RequestBody MountainDTO newMountain, final HttpServletRequest request) throws IOException {
+        System.out.println(newMountain);
+
+    }
+
+    @PostMapping(path="test", consumes = "application/json")
+    public void test(@RequestBody TestDTO testDTO){
+        System.out.println(testDTO);
+
     }
 }
